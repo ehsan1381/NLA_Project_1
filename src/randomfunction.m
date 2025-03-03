@@ -1,7 +1,7 @@
 function [ outputProcessed, outputRaw ] = randomfunction(inputMat, option)
   arguments
     inputMat (:, :) double
-    option (1, 1) double {mustBeNumeric}
+    option (1, 1) double {mustBeNumeric} = 0
   end % arguments
 
 [nRows, nColumns] = size(inputMat);
