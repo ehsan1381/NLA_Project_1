@@ -3,7 +3,9 @@ nRows = 6;
 nColumns = 4;
 option = rand(1);
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
 
 for iRow = 1:nRows
   for iColumn = 1:nColumns
@@ -19,7 +21,9 @@ option = rand(1);
 nRows = 4;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
 
 for iColumn = 1:nColumns
   for iRow = 1:nRows
@@ -36,7 +40,10 @@ nRows = 3;
 nColumns = 3;
 testMat = rand([nRows, nColumns]);
 option = rand(1);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
+
 for iRow = 1:nRows - 1
   for iColumn = 1:nColumns - 1
     temp = testMat(iRow, iColumn);
@@ -44,6 +51,7 @@ for iRow = 1:nRows - 1
     testMat(nRows - iColumn + 1, nRows - iRow + 1) = temp;
   end % for iColumn
 end % for iRow
+
 assert(isequal(outputProcessed, testMat));
 
 
@@ -52,16 +60,17 @@ option = 1;
 nRows = 6;
 nColumns = 4;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
 
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-
 diagonal = sort(diagonal);
+
 assert(isequal(diag(outputProcessed), diagonal));
 
 
@@ -70,14 +79,17 @@ option = 2;
 nRows = 6;
 nColumns = 4;
 testMat = rand([nRows, nColumns]);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
+
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-[outputProcessed, ~] = randomfunction(testMat, option);
 diagonal = sort(diagonal, 'descend');
+
 assert(isequal(diag(outputProcessed), diagonal));
 
 
@@ -85,7 +97,9 @@ assert(isequal(diag(outputProcessed), diagonal));
 nRows = 6;
 nColumns = 4;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat);
+
+[outputProcessed, outputRaw] = randomfunction(testMat);
+assert(isequal(testMat, outputRaw));
 
 for iRow = 1:nRows
   for iColumn = 1:nColumns
@@ -101,7 +115,9 @@ assert(isequal(outputProcessed, testMat));
 nRows = 4;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat);
+
+[outputProcessed, outputRaw] = randomfunction(testMat);
+assert(isequal(testMat, outputRaw));
 
 for iColumn = 1:nColumns
   for iRow = 1:nRows
@@ -117,7 +133,9 @@ assert(isequal(outputProcessed, testMat));
 nRows = 3;
 nColumns = 3;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat);
+
+[outputProcessed, outputRaw] = randomfunction(testMat);
+assert(isequal(testMat, outputRaw));
 
 for iRow = 1:nRows - 1
   for iColumn = 1:nColumns - 1
@@ -126,6 +144,7 @@ for iRow = 1:nRows - 1
     testMat(nRows - iColumn + 1, nRows - iRow + 1) = temp;
   end % for iColumn
 end % for iRow
+
 assert(isequal(outputProcessed, testMat));
 
 
@@ -134,16 +153,17 @@ option = 1;
 nRows = 4;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
 
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-
 diagonal = sort(diagonal);
+
 assert(isequal(diag(outputProcessed), diagonal));
 
 
@@ -152,14 +172,17 @@ option = 2;
 nRows = 4;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
+
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-[outputProcessed, ~] = randomfunction(testMat, option);
 diagonal = sort(diagonal, 'descend');
+
 assert(isequal(diag(outputProcessed), diagonal));
 
 %% Case 11 : Option = 1, square
@@ -167,16 +190,17 @@ option = 1;
 nRows = 6;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
-[outputProcessed, ~] = randomfunction(testMat, option);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
 
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-
 diagonal = sort(diagonal);
+
 assert(isequal(diag(outputProcessed), diagonal));
 
 %% Case 12 : Option = 2, square
@@ -184,13 +208,16 @@ option = 2;
 nRows = 6;
 nColumns = 6;
 testMat = rand([nRows, nColumns]);
+
+[outputProcessed, outputRaw] = randomfunction(testMat, option);
+assert(isequal(testMat, outputRaw));
+
 nDiagonal = min([nRows, nColumns]);
 diagonal = zeros([nDiagonal, 1]);
-
 for i=1:nDiagonal
   diagonal(i) = testMat(i, i);
 end % for
-[outputProcessed, ~] = randomfunction(testMat, option);
+
 diagonal = sort(diagonal, 'descend');
 assert(isequal(diag(outputProcessed), diagonal));
 
