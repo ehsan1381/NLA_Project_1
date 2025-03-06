@@ -24,7 +24,7 @@
  		- more columns🉑
  		- square
 
-# **Side note
+# Side note
 The test cases set above add up to 12, but in the problem statement only 6 were requested. I am not going to write code that is not properly tested so I added uncovered cases myself. The ones that were requested are marked with "🉑". \
 
 # Submitted solution
